@@ -21,5 +21,22 @@ class LCATest {
 	    assertEquals(1, tree.findLCA(3,4));
 	    assertEquals(2, tree.findLCA(2,4));
 	}
-	 
+	
+	@Test
+	void testNonExNum() {
+		LCA tree= new LCA();
+	    tree.root = new Node(1); 
+	    tree.root.left = new Node(2); 
+	    tree.root.right = new Node(3); 
+	    tree.root.left.left = new Node(4); 
+	    tree.root.left.right = new Node(5); 
+	    tree.root.right.left = new Node(6); 
+	    tree.root.right.right = new Node(7); 
+	    
+	    assertEquals(-1, tree.findLCA(12,5)); //1st number missing
+	    assertEquals(-1, tree.findLCA(4,10)); //2nd number missing
+	    assertEquals(-1, tree.findLCA(20,10)); //both numbers missing
+	    
+	}
+	
 }
