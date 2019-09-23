@@ -4,6 +4,18 @@ import static org.junit.Assert.*;
 import org.junit.jupiter.api.Test;
 
 class LCATest {
+	@Test
+	void testConstructorNode() {
+		Node node= new Node(1);
+		
+		assertEquals(1, node.data);
+		//assertEquals(null, node.left.data);
+		
+		
+		
+		
+	}
+	
 	
 	@Test
 	void testConstructorTree() {
