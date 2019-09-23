@@ -1,5 +1,12 @@
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,10 +16,7 @@ class LCATest {
 		Node node= new Node(1);
 		
 		assertEquals(1, node.data);
-		//assertEquals(null, node.left.data);
-		
-		
-		
+		//assertSame(null,node.left);
 		
 	}
 	
@@ -34,6 +38,28 @@ class LCATest {
 	    assertEquals(3, tree.root.right.data); 
 	    assertEquals(4, tree.root.left.left.data); 
 		
+	}
+	
+	@Test
+	void testFindPath() {
+		LCA tree = new LCA(); 
+	    tree.root = new Node(1); 
+	    tree.root.left = new Node(2); 
+	    tree.root.right = new Node(3); 
+	    tree.root.left.left = new Node(4); 
+	    tree.root.left.right = new Node(5); 
+	    tree.root.right.left = new Node(6); 
+	    tree.root.right.right = new Node(7); 
+		
+	    List<Integer> pathFourActual = new ArrayList<>();
+	    List<Integer> pathFour = new ArrayList<>();
+	    pathFour.add(1);
+	    pathFour.add(2);
+	    pathFour.add(4);
+	    
+	    tree.findPath(tree.root, 4, pathFourActual);
+	    assertIterableEquals(pathFourActual,pathFour);
+	    System.out.println(Arrays.deepToString(pathFourActual.toArray()));
 	}
 	
 	
