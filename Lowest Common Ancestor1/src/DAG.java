@@ -15,13 +15,13 @@ public class DAG {
 	
 	//Initialises an empty graph with size V vertices.
 	
-	public DAG(int V) {
+	public  DAG(int V) {
 		if (V < 0) {
 			System.out.println("Number must be greater than zero");
+			
 		} else {
 			this.V = V;
 			this.E = 0;
-			indegree = new int[V];
 			indegree = new int[V];
 			outdegree = new int[V];
 			visited = new int[V];
@@ -31,6 +31,7 @@ public class DAG {
 					adj[i][j] = 0;
 				}
 			}
+			
 		}
 	}
 
@@ -56,10 +57,12 @@ public class DAG {
 	
 	
 
-	public void validateVertex(int v) {
+	public boolean validateVertex(int v) {
 		if ((v < 0) || (v >= V)) {
 			System.out.println(-1);
+			return false;
 		}
+		return true;
 	}
 
 	/**
