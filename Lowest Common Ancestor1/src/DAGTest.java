@@ -123,6 +123,31 @@ public class DAGTest {
 			graph2.addEdge(3, 0);
 			assertTrue(graph2.hasCycle());
 		}
+		
+		
+		
+		
+		
+		public void testLCA() {
+
+			DAG graph = new DAG(4);
+			graph.addEdge(0, 1);
+			graph.addEdge(0, 2);
+			graph.addEdge(0, 3);
+			assertEquals(2, graph.findLCA(1,2));
+			
+			DAG graph2 = new DAG(4);
+			graph2.addEdge(0, 1);
+			graph2.addEdge(1, 2);
+			graph2.addEdge(2, 3);
+			graph2.addEdge(3, 0);
+		
+			//throws an illegal exception
+			assertEquals(null, graph.findLCA(1,2));
+			
+
+		}
+
 
 
 
