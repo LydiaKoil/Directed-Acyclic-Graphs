@@ -140,7 +140,21 @@ public class DAGTest {
 			assertTrue(graph2.hasCycle());
 
 			//throws an illegal exception
-			assertEquals(null, graph.findLCA(1,2));
+			assertEquals(null, graph2.findLCA(1,2));
+			
+
+		}
+		
+		
+		@Test(expected = NullPointerException.class)
+		public void testLCANonEx() {
+
+			DAG graph = new DAG(4);
+			graph.addEdge(0, 1);
+			graph.addEdge(1, 2);
+			graph.addEdge(2, 3);
+			//throws an illegal exception
+			assertEquals(null, graph.findLCA(1,8));
 			
 
 		}
