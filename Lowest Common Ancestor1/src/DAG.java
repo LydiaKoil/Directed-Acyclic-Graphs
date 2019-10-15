@@ -61,6 +61,7 @@ public class DAG {
 		if ((v < 0) || (v >= V)) {
 			System.out.println(-1);
 			return false;
+			
 		}
 		return true;
 	}
@@ -166,7 +167,7 @@ public class DAG {
 		if (!hasCycle()) {
 			return LCAUtil(v, w);
 		} else {
-			throw new IllegalArgumentException("This graph is not an acyclic graph.");
+			throw new NullPointerException();
 		}
 	}
 

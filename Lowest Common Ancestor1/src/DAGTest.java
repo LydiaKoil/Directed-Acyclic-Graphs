@@ -1,10 +1,7 @@
 
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
+import org.junit.Test;
 
 
 public class DAGTest {
@@ -48,11 +45,11 @@ public class DAGTest {
 		public void testValidateVertex() {
 			DAG graph = new DAG(4);
 			
-			assertFalse(graph.validateVertex(4));
 			assertTrue(graph.validateVertex(0));
 			assertTrue(graph.validateVertex(1));
 			assertTrue(graph.validateVertex(2));
 			assertTrue(graph.validateVertex(3));
+			assertFalse(graph.validateVertex(4));
 			
 			
 		}
@@ -125,30 +122,31 @@ public class DAGTest {
 		}
 		
 		
-		
-		
-		
+		@Test(expected = NullPointerException.class)
 		public void testLCA() {
 
 			DAG graph = new DAG(4);
 			graph.addEdge(0, 1);
-			graph.addEdge(0, 2);
-			graph.addEdge(0, 3);
+			graph.addEdge(1, 2);
+			graph.addEdge(2, 3);
 			assertEquals(2, graph.findLCA(1,2));
 			
+
 			DAG graph2 = new DAG(4);
 			graph2.addEdge(0, 1);
 			graph2.addEdge(1, 2);
 			graph2.addEdge(2, 3);
 			graph2.addEdge(3, 0);
-		
+			assertTrue(graph2.hasCycle());
+
 			//throws an illegal exception
 			assertEquals(null, graph.findLCA(1,2));
 			
 
 		}
-
-
+		
+		
+		
 
 
 }
